@@ -24,33 +24,33 @@ This is the Simplified Chinese translation of [design-patterns-for-humans](https
 当前翻译的原文版本是 [b61ac00](https://github.com/kamranahmedse/design-patterns-for-humans/commit/b61ac00fa59671caee204c845e16c47eb6295135)。
 
 
-🚀 Introduction
+🚀  简介
 =================
 
-Design patterns are solutions to recurring problems; **guidelines on how to tackle certain problems**. They are not classes, packages or libraries that you can plug into your application and wait for the magic to happen. These are, rather, guidelines on how to tackle certain problems in certain situations. 
+设计模式是经常性问题的解决方案; **是如何解决特定问题的指导方针**。它们不是类、包或库，只要加到程序中就能起效果。它们是关于如何在特定的情况下解决特定问题的指导方针。
 
-> Design patterns are solutions to recurring problems; guidelines on how to tackle certain problems
+> 设计模式是经常性问题的解决方案; 是如何解决特定问题的指导方针。
 
-Wikipedia describes them as
+Wikipedia 描述为
 
-> In software engineering, a software design pattern is a general reusable solution to a commonly occurring problem within a given context in software design. It is not a finished design that can be transformed directly into source or machine code. It is a description or template for how to solve a problem that can be used in many different situations.
+> 在软件工程中，软件设计模式是在软件设计的给定上下文中，针对普遍存在的问题的一用通用且可重用的解决方案。它不是一个已完成的设计，不同直接转化成源码和机器码。它是就如何解决某个问题，并且能用于许多不同情况的一种描述或模板。
 
-⚠️ Be Careful
+⚠️  注意
 -----------------
-- Design patterns are not a silver bullet to all your problems.
-- Do not try to force them; bad things are supposed to happen, if done so. Keep in mind that design patterns are solutions **to** problems, not solutions **finding** problems; so don't overthink.
-- If used in a correct place in a correct manner, they can prove to be a savior; or else they can result in a horrible mess of a code.
+- 设计模式不是能解决所有问题的银弹。
+- 不要强迫使用: 如果这样，可能会出问题。请记住设计模式是针对 **解决** 问题的方案，不是 **寻找** 问题的方案; 因此不要考虑过头了。
+- 如果在合适的地方以正确的方式使用，它们会很有用; 否则它们可能会导致你的代码极度混乱。
 
-> Also note that the code samples below are in PHP-7, however this shouldn't stop you because the concepts are same anyways. Plus the **support for other languages is underway**.
+> 同时注意下面的代码示例都是用 PHP-7 写的。但这也不太会有问题，因为思想都是一样的。另外 **支持其它语言的工作正在进行中**。
 
-Types of Design Patterns
+设计模式的类型
 -----------------
 
-* [Creational](#creational-design-patterns)
-* [Structural](#structural-design-patterns)
-* [Behavioral](#behavioral-design-patterns)
+* [创造型](#创造型设计模式)
+* [结构型](#structural-design-patterns)
+* [行为型](#behavioral-design-patterns)
 
-Creational Design Patterns
+创造型设计模式
 ==========================
 
 In plain words
@@ -2054,3 +2054,5 @@ MIT © [Kamran Ahmed](http://kamranahmed.info)
 
 项目进度
 ======
+
+- [x] Introduction (2017-02-24)
