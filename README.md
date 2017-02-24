@@ -31,11 +31,11 @@ This is the Simplified Chinese translation of [design-patterns-for-humans](https
 
 > 设计模式是经常性问题的解决方案; 是如何解决特定问题的指导方针。
 
-Wikipedia 描述为
+Wikipedia 上描述为
 
 > 在软件工程中，软件设计模式是在软件设计的给定上下文中，针对普遍存在的问题的一用通用且可重用的解决方案。它不是一个已完成的设计，不同直接转化成源码和机器码。它是就如何解决某个问题，并且能用于许多不同情况的一种描述或模板。
 
-⚠️  注意
+⚠️ 注意
 -----------------
 - 设计模式不是能解决所有问题的银弹。
 - 不要强迫使用: 如果这样，可能会出问题。请记住设计模式是针对 **解决** 问题的方案，不是 **寻找** 问题的方案; 因此不要考虑过头了。
@@ -46,40 +46,41 @@ Wikipedia 描述为
 设计模式的类型
 -----------------
 
-* [创造型](#创造型设计模式)
+* [创建型](#创建型设计模式)
 * [结构型](#structural-design-patterns)
 * [行为型](#behavioral-design-patterns)
 
-创造型设计模式
+创建型设计模式
 ==========================
 
-In plain words
-> Creational patterns are focused towards how to instantiate an object or group of related objects.
+简单来说
+> 创建型模式关注于如何实例化一个或一组相关对象。
 
-Wikipedia says
-> In software engineering, creational design patterns are design patterns that deal with object creation mechanisms, trying to create objects in a manner suitable to the situation. The basic form of object creation could result in design problems or added complexity to the design. Creational design patterns solve this problem by somehow controlling this object creation.
+Wikipedia 上描述为
+> 在软件工程中，创建型设计模式是处理对象创建机制，尝试以适合当前情况的方式来创建对象的设计模式。对象创建时若使用一般形式可能会导致设计问题或增加设计的复杂度。创建型设计模式通过对对象创建过程的控制以解决此问题。
  
- * [Simple Factory](#-simple-factory)
+ * [简单工厂(Simple Factory)](#-简单工厂(simple-factory))
  * [Factory Method](#-factory-method)
  * [Abstract Factory](#-abstract-factory)
  * [Builder](#-builder)
  * [Prototype](#-prototype)
  * [Singleton](#-singleton)
  
-🏠 Simple Factory
+🏠 简单工厂(Simple Factory)
 --------------
-Real world example
-> Consider, you are building a house and you need doors. It would be a mess if every time you need a door, you put on your carpenter clothes and start making a door in your house. Instead you get it made from a factory.
+现实案例
+> 假设你正在建房，因而会用到门。如果每次需要门时，你都穿上木工服在房子里亲自制作，肯定会导致一团糟。这种情况下你需要将门放在工厂里制作。
 
-In plain words
-> Simple factory simply generates an instance for client without exposing any instantiation logic to the client
+简单来说
+> 简单工厂模式对客户隐藏了所有的实例化逻辑，只简单地为客户创建实例。
 
-Wikipedia says
-> In object-oriented programming (OOP), a factory is an object for creating other objects – formally a factory is a function or method that returns objects of a varying prototype or class from some method call, which is assumed to be "new".
+Wikipedia 上描述为
+> 在面向对象编程 (OOP) 中，工厂就是一个用于创建其它对象的对象,  – 形式上工厂可以是一个函数或方法，它在被方法调用时（假设通过 "new"）会返回不现原型或类的对象。
 
-**Programmatic Example**
+**编程示例**
 
-First of all we have a door interface and the implementation
+首先定义门的接口及其实现
+
 ```php
 interface Door {
     public function getWidth() : float;
@@ -104,7 +105,9 @@ class WoodenDoor implements Door {
     }
 }
 ```
-Then we have our door factory that makes the door and returns it
+
+然后定义门工厂，它制作并返回门
+
 ```php
 class DoorFactory {
    public static function makeDoor($width, $height) : Door {
@@ -112,16 +115,18 @@ class DoorFactory {
    }
 }
 ```
-And then it can be used as
+
+再这样使用
+
 ```php
 $door = DoorFactory::makeDoor(100, 200);
 echo 'Width: ' . $door->getWidth();
 echo 'Height: ' . $door->getHeight();
 ```
 
-**When to Use?**
+**何时用？**
 
-When creating an object is not just a few assignments and involves some logic, it makes sense to put it in a dedicated factory instead of repeating the same code everywhere. 
+当创建对象时不仅仅是一些赋值操作，还涉及一些逻辑操作时，适合将这些逻辑放在一个专门的工厂中，从而能避免代码重复。
 
 🏭 Factory Method
 --------------
@@ -2055,4 +2060,5 @@ MIT © [Kamran Ahmed](http://kamranahmed.info)
 项目进度
 ======
 
-- [x] Introduction (2017-02-24)
+- [x] 简介 (2017-02-24)
+- [x] 创建型设计模式 - 简单工厂 (2017-02-24)
