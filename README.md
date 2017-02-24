@@ -60,7 +60,7 @@ Wikipedia 上描述为
 > 在软件工程中，创建型设计模式是处理对象创建机制，尝试以适合当前情况的方式来创建对象的设计模式。对象创建时若使用一般形式可能会导致设计问题或增加设计的复杂度。创建型设计模式通过对对象创建过程的控制以解决此问题。
  
  * [简单工厂(Simple Factory)](#-简单工厂(simple-factory))
- * [Factory Method](#-factory-method)
+ * [工厂方法(Factory Method)](#-工厂方法(factory-method))
  * [Abstract Factory](#-abstract-factory)
  * [Builder](#-builder)
  * [Prototype](#-prototype)
@@ -69,7 +69,7 @@ Wikipedia 上描述为
 🏠 简单工厂(Simple Factory)
 --------------
 现实案例
-> 假设你正在建房，因而会用到门。如果每次需要门时，你都穿上木工服在房子里亲自制作，肯定会导致一团糟。这种情况下你需要将门放在工厂里制作。
+> 假设你正在建房，需要用到门。如果每次需要门时，你都穿上木工服在房子里亲自制作，肯定会导致一团糟。这种情况下你需要将门放在工厂里制作。
 
 简单来说
 > 简单工厂模式对客户隐藏了所有的实例化逻辑，只简单地为客户创建实例。
@@ -106,7 +106,7 @@ class WoodenDoor implements Door {
 }
 ```
 
-然后定义门工厂，它制作并返回门
+然后定义门的工厂，它制作并返回门
 
 ```php
 class DoorFactory {
@@ -128,21 +128,21 @@ echo 'Height: ' . $door->getHeight();
 
 当创建对象时不仅仅是一些赋值操作，还涉及一些逻辑操作时，适合将这些逻辑放在一个专门的工厂中，从而能避免代码重复。
 
-🏭 Factory Method
+🏭 工厂方法(Factory Method)
 --------------
 
-Real world example
-> Consider the case of a hiring manager. It is impossible for one person to interview for each of the positions. Based on the job opening, she has to decide and delegate the interview steps to different people. 
+现实案例
+> 考虑人事招聘经理的情况。一个人不可能参与对每个职位的面试。根据职位空缺，她必须决定并把面试工作委派给不同的人。
 
-In plain words
-> It provides a way to delegate the instantiation logic to child classes. 
+简单来说
+> 它提供了一种能将实例化逻辑委派到子类中完成的方式。
 
-Wikipedia says
-> In class-based programming, the factory method pattern is a creational pattern that uses factory methods to deal with the problem of creating objects without having to specify the exact class of the object that will be created. This is done by creating objects by calling a factory method—either specified in an interface and implemented by child classes, or implemented in a base class and optionally overridden by derived classes—rather than by calling a constructor.
+Wikipedia 上描述为
+> 在基于类的编程中，工厂方法模式是一种创建型模式，它无需指定将要创造的对象的具体类，只使用工厂中的各种方法就能处理对象创建的问题。对象的创建是通过调用工厂方法而非构造器来完成的，工厂方法—要么在接口中定义然后由子类实现，要么是在基类中实现然后被继承类重载。
  
- **Programmatic Example**
+ **编程示例**
  
-Taking our hiring manager example above. First of all we have an interviewer interface and some implementations for it
+继续上面的人事招聘经理的例子。首先定义了面试接口并对它进行了一些实现
 
 ```php
 interface Interviewer {
@@ -162,7 +162,7 @@ class CommunityExecutive implements Interviewer {
 }
 ```
 
-Now let us create our `HiringManager`
+现在让我们创建 `HiringManager`
 
 ```php
 abstract class HiringManager {
@@ -176,7 +176,9 @@ abstract class HiringManager {
     }
 }
 ```
-Now any child can extend it and provide the required interviewer
+
+现在任何子类都可以扩展并提供所需的面试接口
+
 ```php
 class DevelopmentManager extends HiringManager {
     public function makeInterviewer() : Interviewer {
@@ -190,7 +192,8 @@ class MarketingManager extends HiringManager {
     }
 }
 ```
-and then it can be used as
+
+然后可以这样使用
 
 ```php
 $devManager = new DevelopmentManager();
@@ -200,9 +203,9 @@ $marketingManager = new MarketingManager();
 $marketingManager->takeInterview(); // Output: Asking about community building.
 ```
 
-**When to use?**
+**何时使用？**
 
-Useful when there is some generic processing in a class but the required sub-class is dynamically decided at runtime. Or putting it in other words, when the client doesn't know what exact sub-class it might need.
+当类中存在一些通用操作，但是所需的子类是在运行时动态决定的情况下非常有用。换句话说，即当客户无法知道所需的确切子类时。
 
 🔨 Abstract Factory
 ----------------
@@ -2062,3 +2065,4 @@ MIT © [Kamran Ahmed](http://kamranahmed.info)
 
 - [x] 简介 (2017-02-24)
 - [x] 创建型设计模式 - 简单工厂 (2017-02-24)
+- [x] 创建型设计模式 - 工厂方法 (2017-02-24)
