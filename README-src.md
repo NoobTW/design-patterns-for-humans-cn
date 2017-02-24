@@ -1,28 +1,13 @@
 ![Design Patterns For Humans](https://cloud.githubusercontent.com/assets/11269635/23065273/1b7e5938-f515-11e6-8dd3-d0d58de6bb9a.png)
 
-
 ***
 <p align="center">
-🎉  设计模式的超简化描述! 🎉
+🎉 Ultra-simplified explanation to design patterns! 🎉
 </p>
 <p align="center">
 A topic that can easily make anyone's mind wobble. Here I try to make them stick in to your mind (and maybe mine) by explaining them in the <i>simplest</i> way possible. 
 </p>
 ***
-
-说明
-====
-
-This is the Simplified Chinese translation of [design-patterns-for-humans](https://github.com/kamranahmedse/design-patterns-for-humans). Thank [Kamran Ahmed](https://github.com/kamranahmedse) for his great work!
-
-[design-patterns-for-humans](https://github.com/kamranahmedse/design-patterns-for-humans) 是由 [Kamran Ahmed](https://github.com/kamranahmedse) 发起和维护的项目，项目以简洁的语言对各种设计模式进行了描述和整理。
-
-本项目是 [design-patterns-for-humans](https://github.com/kamranahmedse/design-patterns-for-humans) 项目的简体中文翻译版本。也欢迎您一起参与翻译和校审。
-
-本项目的进度和贡献者将在文末列出。
-
-当前翻译的原文版本是 [b61ac00](https://github.com/kamranahmedse/design-patterns-for-humans/commit/b61ac00fa59671caee204c845e16c47eb6295135)。
-
 
 🚀 Introduction
 =================
@@ -2050,7 +2035,3 @@ And that about wraps it up. I will continue to improve this, so you might want t
 
 ## License
 MIT © [Kamran Ahmed](http://kamranahmed.info)
-
-
-项目进度
-======
