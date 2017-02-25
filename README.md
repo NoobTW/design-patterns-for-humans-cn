@@ -47,8 +47,8 @@ Wikipedia 上描述为
 -----------------
 
 * [创建型](#创建型设计模式)
-* [结构型](#structural-design-patterns)
-* [行为型](#behavioral-design-patterns)
+* [结构型](#结构型设计模式)
+* [行为型](#行为型设计模式)
 
 创建型设计模式
 ==========================
@@ -537,7 +537,7 @@ $president2 = President::getInstance();
 var_dump($president1 === $president2); // true
 ```
 
-Structural Design Patterns
+结构型设计模式
 ==========================
 In plain words
 > Structural patterns are mostly concerned with object composition or in other words how the entities can use each other. Or yet another explanation would be, they help in answering "How to build a software component?"
@@ -545,15 +545,15 @@ In plain words
 Wikipedia says
 > In software engineering, structural design patterns are design patterns that ease the design by identifying a simple way to realize relationships between entities.
   
- * [Adapter](#-adapter)
- * [Bridge](#-bridge)
- * [Composite](#-composite)
- * [Decorator](#-decorator)
- * [Facade](#-facade)
- * [Flyweight](#-flyweight)
- * [Proxy](#-proxy)
+ * [适配器(Adapter)](#-适配器adapter)
+ * [桥接(Bridge)](#-桥接bridge)
+ * [组合(Composite)](#-组合composite)
+ * [装饰器(Decorator)](#-装饰器decorator)
+ * [外观(Facade)](#-外观facade)
+ * [享元(Flyweight)](#-享元flyweight)
+ * [代理(Proxy)](#-代理proxy)
 
-🔌 Adapter
+🔌 适配器(Adapter)
 -------
 Real world example
 > Consider that you have some pictures in your memory card and you need to transfer them to your computer. In order to transfer them you need some kind of adapter that is compatible with your computer ports so that you can attach memory card to your computer. In this case card reader is an adapter.
@@ -704,7 +704,7 @@ echo $about->getContent(); // "About page in Dark Black";
 echo $careers->getContent(); // "Careers page in Dark Black";
 ```
 
-🌿 Composite
+🌿 组合(Composite)
 -----------------
 
 Real world example
@@ -823,7 +823,7 @@ $organization->addEmployee($jane);
 echo "Net salaries: " . $organization->getNetSalaries(); // Net Salaries: 22000
 ```
 
-☕ Decorator
+☕ 装饰器(Decorator)
 -------------
 
 Real world example
@@ -932,7 +932,7 @@ echo $someCoffee->getCost(); // 20
 echo $someCoffee->getDescription(); // Simple Coffee, milk, whip, vanilla
 ```
 
-📦 Facade
+📦 外观(Facade)
 ----------------
 
 Real world example
@@ -1011,7 +1011,7 @@ $computer->turnOn(); // Ouch! Beep beep! Loading.. Ready to be used!
 $computer->turnOff(); // Bup bup buzzz! Haah! Zzzzz
 ```
 
-🍃 Flyweight
+🍃 享元(Flyweight)
 ---------
 
 Real world example
@@ -1086,7 +1086,7 @@ $shop->serve();
 // Serving tea to table# 5
 ```
 
-🎱 Proxy
+🎱 代理(Proxy)
 -------------------
 Real world example
 > Have you ever used an access card to go through a door? There are multiple options to open that door i.e. it can be opened either using access card or by pressing a button that bypasses the security. The door's main functionality is to open but there is a proxy added on top of it to add some functionality. Let me better explain it using the code example below.
@@ -1153,7 +1153,7 @@ $door->close(); // Closing lab door
 ```
 Yet another example would be some sort of data-mapper implementation. For example, I recently made an ODM (Object Data Mapper) for MongoDB using this pattern where I wrote a proxy around mongo classes while utilizing the magic method `__call()`. All the method calls were proxied to the original mongo class and result retrieved was returned as it is but in case of `find` or `findOne` data was mapped to the required class objects and the object was returned instead of `Cursor`.
 
-Behavioral Design Patterns
+行为型设计模式
 ==========================
 
 In plain words
@@ -1162,18 +1162,18 @@ In plain words
 Wikipedia says
 > In software engineering, behavioral design patterns are design patterns that identify common communication patterns between objects and realize these patterns. By doing so, these patterns increase flexibility in carrying out this communication.
 
-* [Chain of Responsibility](#-chain-of-responsibility)
-* [Command](#-command)
-* [Iterator](#-iterator)
-* [Mediator](#-mediator)
-* [Memento](#-memento)
-* [Observer](#-observer)
-* [Visitor](#-visitor)
-* [Strategy](#-strategy)
-* [State](#-state)
-* [Template Method](#-template-method)
+* [责任链(Chain of Responsibility)](#-责任链chain-of-responsibility)
+* [命令(Command)](#-命令command)
+* [迭代器(Iterator)](#-迭代器iterator)
+* [中介者(Mediator)](#-中介者mediator)
+* [备忘录(Memento)](#-备忘录memento)
+* [观察者(Observer)](#-观察者observer)
+* [访问者(Visitor)](#-访问者visitor)
+* [策略(Strategy)](#-策略strategy)
+* [状态(State)](#-状态state)
+* [模板方法(Template Method)](#-模板方法template-method)
 
-🔗 Chain of Responsibility
+🔗 责任链(Chain of Responsibility)
 -----------------------
 
 Real world example
@@ -1266,7 +1266,7 @@ $bank->pay(259);
 // Paid 259 using Bitcoin!
 ```
 
-👮 Command
+👮 命令(Command)
 -------
 
 Real world example
@@ -1367,7 +1367,7 @@ $remote->submit($turnOff); // Darkness!
 
 Command pattern can also be used to implement a transaction based system. Where you keep maintaining the history of commands as soon as you execute them. If the final command is successfully executed, all good otherwise just iterate through the history and keep executing the `undo` on all the executed commands. 
 
-➿ Iterator
+➿ 迭代器(Iterator)
 --------
 
 Real world example
@@ -1462,7 +1462,7 @@ foreach($stationList as $station) {
 $stationList->removeStation(new Station(89)); // Will remove station 89
 ```
 
-👽 Mediator
+👽 中介者(Mediator)
 ========
 
 Real world example
@@ -1527,7 +1527,7 @@ $jane->send('Hey!');
 // Feb 14, 10:58 [Jane]: Hey!
 ```
 
-💾 Memento
+💾 备忘录(Memento)
 -------
 Real world example
 > Take the example of calculator (i.e. originator), where whenever you perform some calculation the last calculation is saved in memory (i.e. memento) so that you can get back to it and maybe get it restored using some action buttons (i.e. caretaker). 
@@ -1608,7 +1608,7 @@ $editor->restore($saved);
 $editor->getContent(); // This is the first sentence. This is second.
 ```
 
-😎 Observer
+😎 观察者(Observer)
 --------
 Real world example
 > A good example would be the job seekers where they subscribe to some job posting site and they are notified whenever there is a matching job opportunity.   
@@ -1688,7 +1688,7 @@ $jobPostings->addJob(new JobPost('Software Engineer'));
 // Hi Jane Doe! New job posted: Software Engineer
 ```
 
-🏃 Visitor
+🏃 访问者(Visitor)
 -------
 Real world example
 > Consider someone visiting Dubai. They just need a way (i.e. visa) to enter Dubai. After arrival, they can come and visit any place in Dubai on their own without having to ask for permission or to do some leg work in order to visit any place here; just let them know of a place and they can visit it. Visitor pattern lets you do just that, it helps you add places to visit so that they can visit as much as they can without having to do any legwork.
@@ -1809,7 +1809,7 @@ $dolphin->accept($speak);  // Tuut tutt tuutt!
 $dolphin->accept($jump);   // Walked on water a little and disappeared
 ```
 
-💡 Strategy
+💡 策略(Strategy)
 --------
 
 Real world example
@@ -1874,7 +1874,7 @@ $sorter = new Sorter(new QuickSortStrategy());
 $sorter->sort($dataset); // Output : Sorting using quick sort
 ```
 
-💢 State
+💢 状态(State)
 -----
 Real world example
 > Imagine you are using some drawing application, you choose the paint brush to draw. Now the brush changes its behavior based on the selected color i.e. if you have chosen red color it will draw in red, if blue then it will be in blue etc.  
@@ -1957,7 +1957,7 @@ $editor->type('Fifth line');
 // fifth line
 ```
 
-📒 Template Method
+📒 模板方法(Template Method)
 ---------------
 
 Real world example
