@@ -63,7 +63,7 @@ Wikipedia 上描述为
  * [工厂方法(Factory Method)](#-工厂方法factory-method)
  * [抽象工厂(Abstract Factory)](#-抽象工厂abstract-factory)
  * [构建器(Builder)](#-构建器builder)
- * [Prototype](#-prototype)
+ * [原型(Prototype)](#-原型prototype)
  * [Singleton](#-singleton)
  
 🏠 简单工厂(Simple Factory)
@@ -418,23 +418,24 @@ $burger = (new BurgerBuilder(14))
 
 当某个对象可能会有多种 "口味"，或者想避免重叠构造器反模式(telescoping constructor anti-pattern) 时使用。它与工厂模式的主要区别在于：工厂模式用于当创建过程只有一个步骤的情况，而构建器模式用于当创建过程涉及多个步骤的情况。
 
-🐑 Prototype
+🐑 原型(Prototype)
 ------------
-Real world example
-> Remember dolly? The sheep that was cloned! Lets not get into the details but the key point here is that it is all about cloning
 
-In plain words
-> Create object based on an existing object through cloning.
+现实案例
+> 还记得多莉吗？那只克隆羊！我们先不要关注细节，但是这里的重点是克隆。
 
-Wikipedia says
-> The prototype pattern is a creational design pattern in software development. It is used when the type of objects to create is determined by a prototypical instance, which is cloned to produce new objects.
+简单来说
+> 根据某个已存在的对象，通过克隆来创建对象。
 
-In short, it allows you to create a copy of an existing object and modify it to your needs, instead of going through the trouble of creating an object from scratch and setting it up.
+Wikipedia 上描述为
+> 原型模式是软件开发中的创建型设计模式。它用于，当需创建的对象的类型是由某个原型实例决定的情况，通过克隆该原型实例来产生新的对象。
 
-**Programmatic Example**
+简单来说，它能让你创建某个已有对象的克隆版本，然后你可按需对其进行修改，从而避免了从新创建一个对象并对其进行设置的所有麻烦。
 
-In PHP, it can be easily done using `clone`
-  
+**编程示例**
+
+在 PHP 中, 可以非常容易地使用 `clone` 实现
+ 
 ```php
 class Sheep {
     protected $name;
@@ -462,7 +463,9 @@ class Sheep {
     }
 }
 ```
-Then it can be cloned like below
+
+然后像下面这样进行克隆
+
 ```php
 $original = new Sheep('Jolly');
 echo $original->getName(); // Jolly
@@ -475,11 +478,11 @@ echo $cloned->getName(); // Dolly
 echo $cloned->getCategory(); // Mountain sheep
 ```
 
-Also you could use the magic method `__clone` to modify the cloning behavior.
+另外你也可以通过特殊方法 `__clone` 来定制克隆行为。
 
-**When to use?**
+**何时使用？**
 
-When an object is required that is similar to existing object or when the creation would be expensive as compared to cloning.
+当所需对象和某个现存对象非常相似时，或者当创建操作相比克隆花销更大时。
 
 💍 Singleton
 ------------
@@ -2074,3 +2077,4 @@ MIT © [Kamran Ahmed](http://kamranahmed.info)
 - [x] 创建型设计模式 - 工厂方法 (2017-02-24)
 - [x] 创建型设计模式 - 抽象工厂 (2017-02-25)
 - [x] 创建型设计模式 - 构建器 (2017-02-25)
+- [x] 创建型设计模式 - 原型 (2017-02-25)
