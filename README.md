@@ -61,8 +61,8 @@ Wikipedia 上描述为
  
  * [简单工厂(Simple Factory)](#-简单工厂simple-factory)
  * [工厂方法(Factory Method)](#-工厂方法factory-method)
- * [Abstract Factory](#-abstract-factory)
- * [Builder](#-builder)
+ * [抽象工厂(Abstract Factory)](#-抽象工厂abstract-factory)
+ * [创造器(Builder)](#-创造器builder)
  * [Prototype](#-prototype)
  * [Singleton](#-singleton)
  
@@ -207,21 +207,21 @@ $marketingManager->takeInterview(); // Output: Asking about community building.
 
 当类中存在一些通用操作，但是所需的子类是在运行时动态决定的情况下非常有用。换句话说，即当客户无法知道所需的确切子类时。
 
-🔨 Abstract Factory
+🔨 抽象工厂(Abstract Factory)
 ----------------
 
-Real world example
-> Extending our door example from Simple Factory. Based on your needs you might get a wooden door from a wooden door shop, iron door from an iron shop or a PVC door from the relevant shop. Plus you might need a guy with different kind of specialities to fit the door, for example a carpenter for wooden door, welder for iron door etc. As you can see there is a dependency between the doors now, wooden door needs carpenter, iron door needs a welder etc.
+现实案例
+> 继续简单工厂模式中的门的例子。基于你的需求，你可能从木门店获取木门，从铁门店获取铁门，或者从 PVC 相关店获取 PVC 门。另外你可能还要找不同专长的人来安装门，例如找木匠来安装木门，找电焊工来安装铁门等等。可以看到现在门已经有了依赖，比如木门依赖木匠，铁门依赖电焊工等。
 
-In plain words
-> A factory of factories; a factory that groups the individual but related/dependent factories together without specifying their concrete classes. 
-  
-Wikipedia says
-> The abstract factory pattern provides a way to encapsulate a group of individual factories that have a common theme without specifying their concrete classes
+简单来说
+> 就是工厂的工厂; 该工厂将各个相关/相依赖的工厂组合起来，而无需指定他们具体的类。
 
-**Programmatic Example**
+Wikipedia 上描述为
+> 抽象工厂模式提供了一种将具有相同风格的一组工厂封闭起来的方式，而无需指定各工厂具体的类。
 
-Translating the door example above. First of all we have our `Door` interface and some implementation for it
+**编程示例**
+
+修改以上的门的例子。首先定义 `Door` 接口并做几个实现
 
 ```php
 interface Door {
@@ -240,7 +240,8 @@ class IronDoor implements Door {
     }
 }
 ```
-Then we have some fitting experts for each door type
+
+然后为每种门都定义相应的安装人员
 
 ```php
 interface DoorFittingExpert {
@@ -260,14 +261,15 @@ class Carpenter implements DoorFittingExpert {
 }
 ```
 
-Now we have our abstract factory that would let us make family of related objects i.e. wooden door factory would create a wooden door and wooden door fitting expert and iron door factory would create an iron door and iron door fitting expert
+现在定义我们的抽象工厂，它能为我们创建相关的一组对象，例如木门工厂将会创建木门及木门安装人员对象，而铁门工厂将会创建铁门及铁门安装人员对象。
+
 ```php
 interface DoorFactory {
     public function makeDoor() : Door;
     public function makeFittingExpert() : DoorFittingExpert;
 }
 
-// Wooden factory to return carpenter and wooden door
+// 木门工厂将返回木匠及木门对象
 class WoodenDoorFactory implements DoorFactory {
     public function makeDoor() : Door {
         return new WoodenDoor();
@@ -278,7 +280,7 @@ class WoodenDoorFactory implements DoorFactory {
     }
 }
 
-// Iron door factory to get iron door and the relevant fitting expert
+// 铁门工厂将返回铁门及相应的安装人员
 class IronDoorFactory implements DoorFactory {
     public function makeDoor() : Door {
         return new IronDoor();
@@ -289,7 +291,9 @@ class IronDoorFactory implements DoorFactory {
     }
 }
 ```
-And then it can be used as
+
+然后可以这样使用
+
 ```php
 $woodenFactory = new WoodenDoorFactory();
 
@@ -309,18 +313,19 @@ $door->getDescription();  // Output: I am an iron door
 $expert->getDescription(); // Output: I can only fit iron doors
 ```
 
-As you can see the wooden door factory has encapsulated the `carpenter` and the `wooden door` also iron door factory has encapsulated the `iron door` and `welder`. And thus it had helped us make sure that for each of the created door, we do not get a wrong fitting expert.   
+可以看到木门工厂已经封装了 `木匠` 和 `木门` 而铁门工厂已经封闭了 `铁门` 和 `铁焊工`。这样它就能使我们确保，每次创建了一个门对象后，我们也可以得到其相应的安装人员对象。
 
-**When to use?**
+**何时使用？**
 
-When there are interrelated dependencies with not-that-simple creation logic involved
+当创建逻辑有点复杂但内部又相互关联时使用。
 
-👷 Builder
+👷 创造器(Builder)
 --------------------------------------------
-Real world example
-> Imagine you are at Hardee's and you order a specific deal, lets say, "Big Hardee" and they hand it over to you without *any questions*; this is the example of simple factory. But there are cases when the creation logic might involve more steps. For example you want a customized Subway deal, you have several options in how your burger is made e.g what bread do you want? what types of sauces would you like? What cheese would you want? etc. In such cases builder pattern comes to the rescue.
 
-In plain words
+现实案例
+> 假设你在 Harees(美国连锁快餐店)，你下了一份单，假设说是 "大份装"，然后店员 *无需再多问* 就直接为你送上 "大份装"; 像这样就是简单工厂模式的例子。但是有些情况下创建逻辑可能要涉及多个步骤。例如你想要一份定制餐，对于如何做你的汉堡你有几个要求，例如说使用什么面包，使用何种酱汁，何种奶酪等。像这些情况下就需要使用构造器模式。
+
+简单来说
 > Allows you to create different flavors of an object while avoiding constructor pollution. Useful when there could be several flavors of an object. Or when there are a lot of steps involved in creation of an object.
  
 Wikipedia says
@@ -2066,3 +2071,4 @@ MIT © [Kamran Ahmed](http://kamranahmed.info)
 - [x] 简介 (2017-02-24)
 - [x] 创建型设计模式 - 简单工厂 (2017-02-24)
 - [x] 创建型设计模式 - 工厂方法 (2017-02-24)
+- [x] 创建型设计模式 - 抽象工厂 (2017-02-25)
