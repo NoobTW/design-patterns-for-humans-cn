@@ -64,7 +64,7 @@ Wikipedia 上描述为
  * [抽象工厂(Abstract Factory)](#-抽象工厂abstract-factory)
  * [构建器(Builder)](#-构建器builder)
  * [原型(Prototype)](#-原型prototype)
- * [Singleton](#-singleton)
+ * [单例(Singleton)](#-单例singleton)
  
 🏠 简单工厂(Simple Factory)
 --------------
@@ -484,22 +484,24 @@ echo $cloned->getCategory(); // Mountain sheep
 
 当所需对象和某个现存对象非常相似时，或者当创建操作相比克隆花销更大时。
 
-💍 Singleton
+💍 单例(Singleton)
 ------------
-Real world example
-> There can only be one president of a country at a time. The same president has to be brought to action, whenever duty calls. President here is singleton.
 
-In plain words
-> Ensures that only one object of a particular class is ever created.
+现实案例
+> 一个国家在同一时期只能有一位总统。当需要提起责任时，都是这位总统实施行动的。这里总统就是单例。
 
-Wikipedia says
-> In software engineering, the singleton pattern is a software design pattern that restricts the instantiation of a class to one object. This is useful when exactly one object is needed to coordinate actions across the system.
+简单来说
+> 它能确保某个类永远只能够创建一个对象。
 
-Singleton pattern is actually considered an anti-pattern and overuse of it should be avoided. It is not necessarily bad and could have some valid use-cases but should be used with caution because it introduces a global state in your application and change to it in one place could affect in the other areas and it could become pretty difficult to debug. The other bad thing about them is it makes your code tightly coupled plus it mocking the singleton could be difficult.
+Wikipedia 上描述为
+> 在软件工程中，单例模式是一种软件设计模式，它限制某个类只能实例化成一个对象。当系统需要确切一个对象来协调行为时，单例是很适合的。
 
-**Programmatic Example**
+单例模式实际上被认为是一种反模式，因此需避免过度使用。它不一定就是不好的，它有它的适用情况，但是使用时应当心，因为它在你的程序中引用了一个全局状态，因此在某处对它的修改可能会影响其它地方，从而对它进行高度会变得相当困难。
 
-To create a singleton, make the constructor private, disable cloning, disable extension and create a static variable to house the instance
+**编程示例**
+
+创建一个单例，将构造器设为私有，禁用克隆功能，禁止扩展，并创建一个静态变量来保存实例
+
 ```php
 final class President {
     private static $instance;
@@ -525,7 +527,9 @@ final class President {
     }
 }
 ```
-Then in order to use
+
+然后这样使用
+
 ```php
 $president1 = President::getInstance();
 $president2 = President::getInstance();
@@ -2078,3 +2082,4 @@ MIT © [Kamran Ahmed](http://kamranahmed.info)
 - [x] 创建型设计模式 - 抽象工厂 (2017-02-25)
 - [x] 创建型设计模式 - 构建器 (2017-02-25)
 - [x] 创建型设计模式 - 原型 (2017-02-25)
+- [x] 创建型设计模式 - 单例 (2017-02-25)
