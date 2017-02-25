@@ -539,12 +539,13 @@ var_dump($president1 === $president2); // true
 
 结构型设计模式
 ==========================
-In plain words
-> Structural patterns are mostly concerned with object composition or in other words how the entities can use each other. Or yet another explanation would be, they help in answering "How to build a software component?"
 
-Wikipedia says
-> In software engineering, structural design patterns are design patterns that ease the design by identifying a simple way to realize relationships between entities.
-  
+简单来说
+> 结构型模式主要关注对象的组合或者换句话说是实体间如何能够相互使用。或者也可以另外解释为，它们有助于回答 "如何构建一个软件组件?“。
+
+Wikipedia 上描述为
+> 在软件工程中，结构型设计模式是这样的一些设计模式，它们通过某种简明的方式来实现实体间的关系，从而减少设计的难度。
+ 
  * [适配器(Adapter)](#-适配器adapter)
  * [桥接(Bridge)](#-桥接bridge)
  * [组合(Composite)](#-组合composite)
@@ -555,22 +556,23 @@ Wikipedia says
 
 🔌 适配器(Adapter)
 -------
-Real world example
-> Consider that you have some pictures in your memory card and you need to transfer them to your computer. In order to transfer them you need some kind of adapter that is compatible with your computer ports so that you can attach memory card to your computer. In this case card reader is an adapter.
-> Another example would be the famous power adapter; a three legged plug can't be connected to a two pronged outlet, it needs to use a power adapter that makes it compatible with the two pronged outlet.
-> Yet another example would be a translator translating words spoken by one person to another
 
-In plain words
-> Adapter pattern lets you wrap an otherwise incompatible object in an adapter to make it compatible with another class.
+现实案例
+> 假设你的内在卡里放有一些照片，你需要将它们传到电脑上。要完成传输，你需要一些与你的电脑接口兼容的适配器，这样你才能将内存卡与你的电脑相连。在这种情况下读卡器就是一个适配器。
+> 另一个例子就是大家都知道的电源适配器; 一个三脚插头无法插到两口的插坐上，需要使用一个电源适配器才能将它与两口插坐连接。
+> 还有一个例子就是翻译，他能将一个人说的话翻译给另一个听。
 
-Wikipedia says
-> In software engineering, the adapter pattern is a software design pattern that allows the interface of an existing class to be used as another interface. It is often used to make existing classes work with others without modifying their source code.
+简单来说
+> 适配器模式允许你在适配器中封装其它不兼容的对象，从而使它们与某些类兼容。
 
-**Programmatic Example**
+Wikipedia 上描述为
+> 在软件工程中，适配器模式这种软件设计模式允许现有类的接口转成另一种接口来使用。它通常用来使现有类在无需修改其源码的情况下，与其它类实现协作。
 
-Consider a game where there is a hunter and he hunts lions.
+**编程示例**
 
-First we have an interface `Lion` that all types of lions have to implement
+假设现有一款关于猎人猎狮的游戏。
+
+首先定义 `Lion` 接口并实现所有种类的狮子类
 
 ```php
 interface Lion {
@@ -585,7 +587,9 @@ class AsianLion implements Lion {
     public function roar() {}
 }
 ```
-And hunter expects any implementation of `Lion` interface to hunt.
+
+猎人只有当看到实现了 `Lion` 接口的猎物后才能狩猎。
+
 ```php
 class Hunter {
     public function hunt(Lion $lion) {
@@ -593,7 +597,7 @@ class Hunter {
 }
 ```
 
-Now let's say we have to add a `WildDog` in our game so that hunter can hunt that also. But we can't do that directly because dog has a different interface. To make it compatible for our hunter, we will have to create an adapter that is compatible
+现假设我们需要在游戏中加入 `WildDog`，使猎人对它们也能进行狩猎。但是我们无法直接实现，但是狗具有不同的接口。要使它与我们的猎人兼容，我们将需要创建一个兼容的适配器。
  
 ```php
 // This needs to be added to the game
@@ -614,7 +618,8 @@ class WildDogAdapter implements Lion {
     }
 }
 ```
-And now the `WildDog` can be used in our game using `WildDogAdapter`.
+
+现在 `WildDog` 可能通过 `WildDogAdapter` 使用到我们的游戏中了。
 
 ```php
 $wildDog = new WildDog();
@@ -2083,3 +2088,4 @@ MIT © [Kamran Ahmed](http://kamranahmed.info)
 - [x] 创建型设计模式 - 建造者 (2017-02-25)
 - [x] 创建型设计模式 - 原型 (2017-02-25)
 - [x] 创建型设计模式 - 单例 (2017-02-25)
+- [x] 结构型设计模式 - 适配器 (2017-02-25)
