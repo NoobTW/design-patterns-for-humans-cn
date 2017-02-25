@@ -62,7 +62,7 @@ Wikipedia 上描述为
  * [简单工厂(Simple Factory)](#-简单工厂simple-factory)
  * [工厂方法(Factory Method)](#-工厂方法factory-method)
  * [抽象工厂(Abstract Factory)](#-抽象工厂abstract-factory)
- * [创造器(Builder)](#-创造器builder)
+ * [构建器(Builder)](#-构建器builder)
  * [Prototype](#-prototype)
  * [Singleton](#-singleton)
  
@@ -319,30 +319,30 @@ $expert->getDescription(); // Output: I can only fit iron doors
 
 当创建逻辑有点复杂但内部又相互关联时使用。
 
-👷 创造器(Builder)
+👷 创构器(Builder)
 --------------------------------------------
 
 现实案例
 > 假设你在 Harees(美国连锁快餐店)，你下了一份单，假设说是 "大份装"，然后店员 *无需再多问* 就直接为你送上 "大份装"; 像这样就是简单工厂模式的例子。但是有些情况下创建逻辑可能要涉及多个步骤。例如你想要一份定制餐，对于如何做你的汉堡你有几个要求，例如说使用什么面包，使用何种酱汁，何种奶酪等。像这些情况下就需要使用构造器模式。
 
 简单来说
-> Allows you to create different flavors of an object while avoiding constructor pollution. Useful when there could be several flavors of an object. Or when there are a lot of steps involved in creation of an object.
+> 它允许你创建 ”不同口味" 的对象，同时又能避免 “污染” 构造函数的参数。当某对象可能会有多种 “口味"，或者对象的创建过程涉及多个步骤时会很有用。
  
-Wikipedia says
-> The builder pattern is an object creation software design pattern with the intentions of finding a solution to the telescoping constructor anti-pattern.
+Wikipedia 上描述为
+> 构建器模式是一种对象创建的软件设计模式，它意在为重叠构造器这种反模式(telescoping constructor anti-pattern)找到一种解决方案。
 
-Having said that let me add a bit about what telescoping constructor anti-pattern is. At one point or the other we have all seen a constructor like below:
+既然说到了，让我多说几名什么是重叠构造器反模式(telescoping constructor anti-pattern)。我们或多或少会看过像这样的构造函数：
  
 ```php
 public function __construct($size, $cheese = true, $pepperoni = true, $tomato = false, $lettuce = true) {
 }
 ```
 
-As you can see; the number of constructor parameters can quickly get out of hand and it might become difficult to understand the arrangement of parameters. Plus this parameter list could keep on growing if you would want to add more options in future. This is called telescoping constructor anti-pattern.
+可以看到; 构造函数的参数个数很快会一发不可收拾，从而对参数布局的理解会变得困难。另外假如以后还要添加更多功能的话，该参数列表还会继续增长。这就是所谓的重叠构造器反模式(telescoping constructor anti-pattern)。
 
-**Programmatic Example**
+**编程示例**
 
-The sane alternative is to use the builder pattern. First of all we have our burger that we want to make
+理智地选择是使用构建器模式。首先定义我们需要制作的汉堡
 
 ```php
 class Burger {
@@ -363,7 +363,7 @@ class Burger {
 }
 ```
 
-And then we have the builder
+然后定义构建器
 
 ```php
 class BurgerBuilder {
@@ -403,7 +403,8 @@ class BurgerBuilder {
     }
 }
 ```
-And then it can be used as:
+
+然后可以这样使用:
 
 ```php
 $burger = (new BurgerBuilder(14))
@@ -413,9 +414,9 @@ $burger = (new BurgerBuilder(14))
                     ->build();
 ```
 
-**When to use?**
+**何时使用？**
 
-When there could be several flavors of an object and to avoid the constructor telescoping. The key difference from the factory pattern is that; factory pattern is to be used when the creation is a one step process while builder pattern is to be used when the creation is a multi step process.
+当某个对象可能会有多种 "口味"，或者想避免重叠构造器反模式(telescoping constructor anti-pattern) 时使用。它与工厂模式的主要区别在于：工厂模式用于当创建过程只有一个步骤的情况，而构建器模式用于当创建过程涉及多个步骤的情况。
 
 🐑 Prototype
 ------------
@@ -2072,3 +2073,4 @@ MIT © [Kamran Ahmed](http://kamranahmed.info)
 - [x] 创建型设计模式 - 简单工厂 (2017-02-24)
 - [x] 创建型设计模式 - 工厂方法 (2017-02-24)
 - [x] 创建型设计模式 - 抽象工厂 (2017-02-25)
+- [x] 创建型设计模式 - 构建器 (2017-02-25)
