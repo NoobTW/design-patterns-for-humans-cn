@@ -59,8 +59,8 @@ Wikipedia 上描述为
 Wikipedia 上描述为
 > 在软件工程中，创建型设计模式是处理对象创建机制，尝试以适合当前情况的方式来创建对象的设计模式。对象创建时若使用一般形式可能会导致设计问题或增加设计的复杂度。创建型设计模式通过对对象创建过程的控制以解决此问题。
  
- * [简单工厂(Simple Factory)](#-简单工厂(simple-factory))
- * [工厂方法(Factory Method)](#-工厂方法(factory-method))
+ * [简单工厂(Simple Factory)](#-简单工厂simple-factory)
+ * [工厂方法(Factory Method)](#-工厂方法factory-method)
  * [Abstract Factory](#-abstract-factory)
  * [Builder](#-builder)
  * [Prototype](#-prototype)
