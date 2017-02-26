@@ -945,18 +945,18 @@ echo $someCoffee->getDescription(); // Simple Coffee, milk, whip, vanilla
 📦 外观(Facade)
 ----------------
 
-Real world example
-> How do you turn on the computer? "Hit the power button" you say! That is what you believe because you are using a simple interface that computer provides on the outside, internally it has to do a lot of stuff to make it happen. This simple interface to the complex subsystem is a facade.
+现实案例
+> 你怎样开计算机的？ "按电源键" 你说！你相信那样一定可以，这是由于你正在使用计算机外部的一个简单接口，而其内部需要完成大量工作才能实现开机。这个针对复杂子系统而设计的简单接口就是外观。
 
-In plain words
-> Facade pattern provides a simplified interface to a complex subsystem.
+简单来说
+> 外观模式为复杂子系统提供一个简化接口。
 
-Wikipedia says
-> A facade is an object that provides a simplified interface to a larger body of code, such as a class library.
+Wikipedia 上描述为
+> 外观就是一个对象，它为更大规模的代码，如类库等提供简化的接口。
 
-**Programmatic Example**
+**编程示例**
 
-Taking our computer example from above. Here we have the computer class
+使用上面的计算机的例子。现在先定义计算机类
 
 ```php
 class Computer {
@@ -990,7 +990,9 @@ class Computer {
     }
 }
 ```
-Here we have the facade
+
+这样定义外观
+
 ```php
 class ComputerFacade
 {
@@ -1014,7 +1016,9 @@ class ComputerFacade
     }
 }
 ```
-Now to use the facade
+
+现在这样使用外观
+
 ```php
 $computer = new ComputerFacade(new Computer());
 $computer->turnOn(); // Ouch! Beep beep! Loading.. Ready to be used!
@@ -2096,3 +2100,4 @@ MIT © [Kamran Ahmed](http://kamranahmed.info)
 - [x] 结构型设计模式 - 桥接 (2017-02-26，由 [DashShen](https://github.com/DashShen) 翻译，[haiiiiiyun](https://github.com/haiiiiiyun/) 校审)
 - [x] 结构型设计模式 - 组合 (2017-02-26)
 - [x] 结构型设计模式 - 装饰器 (2017-02-26)
+- [x] 结构型设计模式 - 外观 (2017-02-26)
