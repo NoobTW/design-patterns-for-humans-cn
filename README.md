@@ -717,21 +717,20 @@ echo $careers->getContent(); // "Careers page in Dark Black";
 🌿 组合(Composite)
 -----------------
 
-Real world example
-> Every organization is composed of employees. Each of the employees has same features i.e. has a salary, has some responsibilities, may or may not report to someone, may or may not have some subordinates etc.
+现实案例
+> 每个组织都由员工组成。每个员工都有相似的特征，如都有工资，都担负一些职责，需要（或者不需要）向某人汇报，有（或者没有）一些下属等。
 
-In plain words
-> Composite pattern lets clients to treat the individual objects in a uniform manner.
+简单来说
+> 组合模式使得客户能以统一的方式对待每个对象。
 
-Wikipedia says
-> In software engineering, the composite pattern is a partitioning design pattern. The composite pattern describes that a group of objects is to be treated in the same way as a single instance of an object. The intent of a composite is to "compose" objects into tree structures to represent part-whole hierarchies. Implementing the composite pattern lets clients treat individual objects and compositions uniformly.
+Wikipedia 上描述为
+> 在软件工程中，组合模式是一种分割式的设计模式。组合模式描述为：能用和对待单个对象实例的相同方式对待一组对象。组合为的是将对象组织成树型结构，以表达 *部分-整体* 的层级结构。使用组合模式后，客户就能一致地对待单独对象和组合体了。
 
-**Programmatic Example**
+**编程示例**
 
-Taking our employees example from above. Here we have different employee types
+使用以上的员工例子。这里定义了不同类型的员工
 
 ```php
-
 interface Employee {
     public function __construct(string $name, float $salary);
     public function getName() : string;
@@ -795,7 +794,7 @@ class Designer implements Employee {
 }
 ```
 
-Then we have an organization which consists of several different types of employees
+再定义一个组织，它由不同类型的员工组成
 
 ```php
 class Organization {
@@ -818,7 +817,7 @@ class Organization {
 }
 ```
 
-And then it can be used as
+然后可以这样使用
 
 ```php
 // Prepare the employees
@@ -2094,3 +2093,4 @@ MIT © [Kamran Ahmed](http://kamranahmed.info)
 - [x] 创建型设计模式 - 单例 (2017-02-25)
 - [x] 结构型设计模式 - 适配器 (2017-02-25)
 - [x] 结构型设计模式 - 桥接 (2017-02-26，由 [DashShen](https://github.com/DashShen) 翻译，[haiiiiiyun](https://github.com/haiiiiiyun/) 校审)
+- [x] 结构型设计模式 - 组合 (2017-02-26)
