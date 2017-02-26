@@ -629,23 +629,23 @@ $hunter = new Hunter();
 $hunter->hunt($wildDogAdapter);
 ```
 
-🚡 Bridge
+🚡 桥接(Bridge)
 ------
-Real world example
-> Consider you have a website with different pages and you are supposed to allow the user to change the theme. What would you do? Create multiple copies of each of the pages for each of the themes or would you just create separate theme and load them based on the user's preferences? Bridge pattern allows you to do the second i.e.
+现实案例
+> 假设你有一个由很多个不同的页面组成的网站，然后用户可以自己选择页面的主题。 那么你会怎么做？
+是给每一个主题都复制一份相对应的页面?还是将页面和主题分离，之后根据用户的喜好加载主题？如果你想用第二种办法，那么桥接模式就是你的解决之道。
 
 ![With and without the bridge pattern](https://cloud.githubusercontent.com/assets/11269635/23065293/33b7aea0-f515-11e6-983f-98823c9845ee.png)
 
-In Plain Words
-> Bridge pattern is about preferring composition over inheritance. Implementation details are pushed from a hierarchy to another object with a separate hierarchy.
+简单来说
+> 桥接模式是一种更喜欢使用组合而非继承的设计模式。对象实现的细节从一个结构中装换到另一个分离机构的对象中。
 
-Wikipedia says
-> The bridge pattern is a design pattern used in software engineering that is meant to "decouple an abstraction from its implementation so that the two can vary independently"
+Wikipedia 上描述为
+> 桥接模式是软件设计模式之一，它把事物对象和其具体行为、具体特征分离开来，使它们可以各自独立的变化
 
-**Programmatic Example**
+**编程实例**
 
-Translating our WebPage example from above. Here we have the `WebPage` hierarchy
-
+根据我们上面说的网站的例子，我们现有这样的一个`WebPage`的结构 
 ```php
 interface WebPage {
     public function __construct(Theme $theme);
@@ -676,7 +676,8 @@ class Careers implements WebPage {
    } 
 }
 ```
-And the separate theme hierarchy
+
+然后是我们的主题的结构
 ```php
 interface Theme {
     public function getColor();
@@ -698,7 +699,7 @@ class AquaTheme implements Theme {
     }
 }
 ```
-And both the hierarchies
+最后将两种结构结合起来
 ```php
 $darkTheme = new DarkTheme();
 
