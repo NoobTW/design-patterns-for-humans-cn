@@ -835,19 +835,19 @@ echo "Net salaries: " . $organization->getNetSalaries(); // Net Salaries: 22000
 ☕ 装饰器(Decorator)
 -------------
 
-Real world example
+现实案例
 
-> Imagine you run a car service shop offering multiple services. Now how do you calculate the bill to be charged? You pick one service and dynamically keep adding to it the prices for the provided services till you get the final cost. Here each type of service is a decorator.
+> 假设你运营一家提供多种服务的汽车服务店。现在你怎样计算要收的费用？你就所有提供了的服务，将每项服务费用都动态叠加起来，直到算出总额。这里每种服务都是一种装饰器。
 
-In plain words
-> Decorator pattern lets you dynamically change the behavior of an object at run time by wrapping them in an object of a decorator class.
+简单来说
+> 装饰器模式通过将对象封装在装饰器类的对象中，从而使你能在运行时动态修改原对象的行为。
 
-Wikipedia says
-> In object-oriented programming, the decorator pattern is a design pattern that allows behavior to be added to an individual object, either statically or dynamically, without affecting the behavior of other objects from the same class. The decorator pattern is often useful for adhering to the Single Responsibility Principle, as it allows functionality to be divided between classes with unique areas of concern.
+Wikipedia 上描述为
+> 在面向对象编程中，装饰器这种设计模式允许以静态或者动态的方式，将行为添加到某个对象中，而这种修改不会影响相同类中的其它实例对象的行为。装饰器模式通常对于遵循单一职责原则(Single Responsibility Principle)很有用, 因为它允许功能在类间进行划分，使得各个类只专注各自的功能领域。
 
-**Programmatic Example**
+**编程示例**
 
-Lets take coffee for example. First of all we have a simple coffee implementing the coffee interface
+以咖啡为例。首先让简单咖啡实现咖啡接口
 
 ```php
 interface Coffee {
@@ -866,7 +866,9 @@ class SimpleCoffee implements Coffee {
     }
 }
 ```
-We want to make the code extensible to allow options to modify it if required. Lets make some add-ons (decorators)
+
+我们想使代码可扩展，允许在需要的时候能够修改选项。让我们添加一些添加物（装饰器）
+
 ```php
 class MilkCoffee implements Coffee {
     
@@ -918,10 +920,9 @@ class VanillaCoffee implements Coffee {
         return $this->coffee->getDescription() . ', vanilla';
     }
 }
-
 ```
 
-Lets make a coffee now
+现在可以制作咖啡了
 
 ```php
 $someCoffee = new SimpleCoffee();
@@ -2094,3 +2095,4 @@ MIT © [Kamran Ahmed](http://kamranahmed.info)
 - [x] 结构型设计模式 - 适配器 (2017-02-25)
 - [x] 结构型设计模式 - 桥接 (2017-02-26，由 [DashShen](https://github.com/DashShen) 翻译，[haiiiiiyun](https://github.com/haiiiiiyun/) 校审)
 - [x] 结构型设计模式 - 组合 (2017-02-26)
+- [x] 结构型设计模式 - 装饰器 (2017-02-26)
