@@ -21,7 +21,7 @@ This is the Simplified Chinese translation of [design-patterns-for-humans](https
 
 本项目的进度和贡献者将在文末列出。
 
-当前翻译的原文版本是 [b61ac00](https://github.com/kamranahmedse/design-patterns-for-humans/commit/b61ac00fa59671caee204c845e16c47eb6295135)。
+当前翻译的原文版本是 [b75365b](https://github.com/kamranahmedse/design-patterns-for-humans/commit/b75365b4f69222b160c57bce5c11a32c7422fefa)
 
 
 🚀  简介
@@ -1683,7 +1683,6 @@ Then it can be used as
 // Create subscribers
 $johnDoe = new JobSeeker('John Doe');
 $janeDoe = new JobSeeker('Jane Doe');
-$kaneDoe = new JobSeeker('Kane Doe');
 
 // Create publisher and attach subscribers
 $jobPostings = new JobPostings();
