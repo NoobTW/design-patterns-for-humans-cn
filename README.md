@@ -1850,18 +1850,18 @@ $dolphin->accept($jump);   // Walked on water a little and disappeared
 💡 策略(Strategy)
 --------
 
-Real world example
-> Consider the example of sorting, we implemented bubble sort but the data started to grow and bubble sort started getting very slow. In order to tackle this we implemented Quick sort. But now although the quick sort algorithm was doing better for large datasets, it was very slow for smaller datasets. In order to handle this we implemented a strategy where for small datasets, bubble sort will be used and for larger, quick sort.
+现实案例
+> 考虑排序的例子，我们实现了冒泡排序，但是随着数据增多，冒泡排序变得越来越慢。为了解决这个问题，我们又实现了快速排序。但是现在虽然快速排序算法在大数据集中运行很好，它用在较小的数据集上却很慢。为了处理这种情况，我们实现了一种策略：小数据集时用冒泡排序，较大数据集时用快速排序。
 
-In plain words
-> Strategy pattern allows you to switch the algorithm or strategy based upon the situation.
+简单来说
+> 策略模式允许你能根据情况切换算法或策略。
 
-Wikipedia says
-> In computer programming, the strategy pattern (also known as the policy pattern) is a behavioural software design pattern that enables an algorithm's behavior to be selected at runtime.
+Wikipedia 上描述为
+> 在计算机编程中，策略模式（也称为政策模式）是一种行为型软件设计模式，它使得能在运行时选择算法的行为。
  
-**Programmatic example**
+**编程示例**
 
-Translating our example from above. First of all we have our strategy interface and different strategy implementations
+实现上面的例子。首先定义策略接口，并实现不同的策略
 
 ```php
 interface SortStrategy {
@@ -1887,7 +1887,8 @@ class QuickSortStrategy implements SortStrategy {
 }
 ```
  
-And then we have our client that is going to use any strategy
+然后定义客户，它能使用任何的策略
+
 ```php
 class Sorter {
     protected $sorter;
@@ -1901,7 +1902,9 @@ class Sorter {
     }
 }
 ```
-And it can be used as
+
+然后这样使用
+
 ```php
 $dataset = [1, 5, 4, 3, 2, 8];
 
@@ -2137,4 +2140,5 @@ MIT © [Kamran Ahmed](http://kamranahmed.info)
 - [x] 行为型设计模式 - 中介者 (2017-02-27)
 - [x] 行为型设计模式 - 备忘录 (2017-02-27)
 - [x] 行为型设计模式 - 观察者 (2017-02-27)
+- [x] 行为型设计模式 - 策略 (2017-02-27)
 - [x] 行为型设计模式 - 模板方法 (2017-02-27，由 [DashShen](https://github.com/DashShen) 翻译，[haiiiiiyun](https://github.com/haiiiiiyun/) 校审)
