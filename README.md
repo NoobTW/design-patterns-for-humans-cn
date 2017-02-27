@@ -1728,12 +1728,13 @@ $jobPostings->addJob(new JobPost('Software Engineer'));
 
 🏃 访问者(Visitor)
 -------
-Real world example
-> Consider someone visiting Dubai. They just need a way (i.e. visa) to enter Dubai. After arrival, they can come and visit any place in Dubai on their own without having to ask for permission or to do some leg work in order to visit any place here; just let them know of a place and they can visit it. Visitor pattern lets you do just that, it helps you add places to visit so that they can visit as much as they can without having to do any legwork.
 
-In plain words
-> Visitor pattern lets you add further operations to objects without having to modify them.
-    
+现实案例
+> 考虑到迪拜旅游的例子。他们只需通过一种途径（例如签证）进入迪拜。抵达后，他们可以自己去参观迪拜的任何地方，要参观这里的任何地方，都无需征得同意或做一些跑腿的工作; 只需告诉他们地址，他们就能去参观。访问者模式也允许你那样做，它能帮你添加要访问的地点，从而使你能参观尽可能多的地方，而无需另做额外的工作。
+
+简单来说
+> 访问者模式允许你无需进行修改就能将进一步的操作添加到对象中。
+ 
 Wikipedia says
 > In object-oriented programming and software engineering, the visitor design pattern is a way of separating an algorithm from an object structure on which it operates. A practical result of this separation is the ability to add new operations to existing object structures without modifying those structures. It is one way to follow the open/closed principle.
 
