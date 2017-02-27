@@ -1397,18 +1397,18 @@ $remote->submit($turnOff); // Darkness!
 ➿ 迭代器(Iterator)
 --------
 
-Real world example
-> An old radio set will be a good example of iterator, where user could start at some channel and then use next or previous buttons to go through the respective channels. Or take an example of MP3 player or a TV set where you could press the next and previous buttons to go through the consecutive channels or in other words they all provide an interface to iterate through the respective channels, songs or radio stations.  
+现实案例
+> 老式收音机是迭代器的很好的例子，用户可以先从某个频道开始，然后使用前后按键来遍历各个频道。或者以 MP3 播放器或电视机为例，也可以用前后按键来遍历各首歌曲或频道。换句话说，它们都提供了一个接口，来遍历各个频道，歌曲或广播电台。
 
-In plain words
-> It presents a way to access the elements of an object without exposing the underlying presentation.
+简单来说
+> 它提供了一种访问对象内所有元素的方法，而避免暴露低层是如何表示的。
 
-Wikipedia says
-> In object-oriented programming, the iterator pattern is a design pattern in which an iterator is used to traverse a container and access the container's elements. The iterator pattern decouples algorithms from containers; in some cases, algorithms are necessarily container-specific and thus cannot be decoupled.
+Wikipedia 上描述为
+> 在面向对象编程中，迭代器模式是一个设计模式，迭代器使用遍历容器以访问容器内的元素。迭代器模式将算法和容器进行了解耦; 但在某些情况下，算法必需是特定与容器的，因而无法解耦。
 
-**Programmatic example**
+**编程示例**
 
-In PHP it is quite easy to implement using SPL (Standard PHP Library). Translating our radio stations example from above. First of all we have `RadioStation`
+在 PHP 很容易使用 SPL (标准 PHP 库) 来实现。实现上面的广播电台的例子。首先我们定义 `RadioStation`
 
 ```php
 class RadioStation {
@@ -1423,7 +1423,8 @@ class RadioStation {
     }
 }
 ```
-Then we have our iterator
+
+然后定义迭代器
 
 ```php
 use Countable;
@@ -1473,7 +1474,9 @@ class StationList implements Countable, Iterator {
     }
 }
 ```
-And then it can be used as
+
+然后可以这样使用
+
 ```php
 $stationList = new StationList();
 
@@ -2116,3 +2119,6 @@ MIT © [Kamran Ahmed](http://kamranahmed.info)
 - [x] 结构型设计模式 - 外观 (2017-02-26)
 - [x] 结构型设计模式 - 享元 (2017-02-27)
 - [x] 结构型设计模式 - 代理 (2017-02-27)
+- [x] 行为型设计模式 - 责任链 (2017-02-27)
+- [x] 行为型设计模式 - 命令 (2017-02-27)
+- [x] 行为型设计模式 - 迭代器 (2017-02-27)
