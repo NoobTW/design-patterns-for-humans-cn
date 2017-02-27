@@ -1290,19 +1290,20 @@ $bank->pay(259);
 👮 命令(Command)
 -------
 
-Real world example
-> A generic example would be you ordering a food at restaurant. You (i.e. `Client`) ask the waiter (i.e. `Invoker`) to bring some food (i.e. `Command`) and waiter simply forwards the request to Chef (i.e. `Receiver`) who has the knowledge of what and how to cook. 
-> Another example would be you (i.e. `Client`) switching on (i.e. `Command`) the television (i.e. `Receiver`) using a remote control (`Invoker`).
+现实案例
+> 一个普通的例子就是在餐厅吃饭。你（即 `客户 Client`）要求服务员（即 `调用者 Invoker`）上菜（即 `命令 Command`），而服务员只是简单地将你的请求传达到厨师（即 `接收者 Receiver`），厨师知道做哪道菜及如何做。
+> 另一个例子是你（即 `客户 Client`）使用遥控器（即 `调用者 Invoker`）打开（即 `命令 Command`）电视机（即 `接收者 Receiver`）。
 
-In plain words
-> Allows you to encapsulate actions in objects. The key idea behind this pattern is to provide the means to decouple client from receiver.
+简单来说
+> 它允许你在对象中封装行为。该模式背后的主要思想就是提供将客户与接收者解耦的方法。
 
-Wikipedia says
-> In object-oriented programming, the command pattern is a behavioral design pattern in which an object is used to encapsulate all information needed to perform an action or trigger an event at a later time. This information includes the method name, the object that owns the method and values for the method parameters.
+Wikipedia 上描述为
+> 在面向对象编程中，命令模式是一种行为型设计模式，它用对象来封装执行一个动作或稍后触发一个事件所需的所有信息。这些信息包括方法名，拥有该方法的对象以及方法参数的值等。
 
-**Programmatic Example**
+**编程示例**
 
-First of all we have the receiver that has the implementation of every action that could be performed
+首先定义接收者，并且对它能够执行的每个行为都进行了实现
+
 ```php
 // Receiver
 class Bulb {
@@ -1315,7 +1316,9 @@ class Bulb {
     }
 }
 ```
-then we have an interface that each of the commands are going to implement and then we have a set of commands
+
+然后定义一个每个命令都需要实现的接口，并定义一组命令
+
 ```php
 interface Command {
     public function execute();
@@ -1364,7 +1367,8 @@ class TurnOff implements Command {
     }
 }
 ```
-Then we have an `Invoker` with whom the client will interact to process any commands
+
+再定义一个 `调用者 Invoker`，客户与它交互来处理任何命令
 ```php
 // Invoker
 class RemoteControl {
@@ -1374,7 +1378,9 @@ class RemoteControl {
     }
 }
 ```
-Finally let's see how we can use it in our client
+
+最后看下客户如何使用
+
 ```php
 $bulb = new Bulb();
 
@@ -1386,7 +1392,7 @@ $remote->submit($turnOn); // Bulb has been lit!
 $remote->submit($turnOff); // Darkness!
 ```
 
-Command pattern can also be used to implement a transaction based system. Where you keep maintaining the history of commands as soon as you execute them. If the final command is successfully executed, all good otherwise just iterate through the history and keep executing the `undo` on all the executed commands. 
+命令模式也可以用来实现事务型系统。当你一旦执行命令后就保存其执行记录。如果最后一个命令也执行成功了，那样很好，否则只需遍历历史记录，并在所有执行了的命令上执行 `undo` 即可。
 
 ➿ 迭代器(Iterator)
 --------
