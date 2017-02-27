@@ -1644,18 +1644,20 @@ $editor->getContent(); // This is the first sentence. This is second.
 
 😎 观察者(Observer)
 --------
-Real world example
-> A good example would be the job seekers where they subscribe to some job posting site and they are notified whenever there is a matching job opportunity.   
 
-In plain words
-> Defines a dependency between objects so that whenever an object changes its state, all its dependents are notified.
+现实案例
+> 一个不错的案例是求职者，他们订阅到一些职位发布网站，然后当出现匹配的工作机会时，他们就会得到通知。
 
-Wikipedia says
-> The observer pattern is a software design pattern in which an object, called the subject, maintains a list of its dependents, called observers, and notifies them automatically of any state changes, usually by calling one of their methods.
+简单来说
+> 它在对象间定义了一种依赖关系，从而当某个对象的状态改变后，它的所有依赖对象都将得到通知。
 
-**Programmatic example**
+Wikipedia 上描述为
+> 观察者模式是一种软件设计模式，其内的一个对象（称为主题），会维护一组依赖对象（称为观察者），当对象的状态改变时，它通常是通过调用依赖对象的某个函数，来自动通知它们。
 
-Translating our example from above. First of all we have job seekers that need to be notified for a job posting
+**编程示例**
+
+实现以上的例子。首先定义求职者，他需要获得工作职位发布的通知
+
 ```php
 class JobPost {
     protected $title;
@@ -1682,7 +1684,9 @@ class JobSeeker implements Observer {
     }
 }
 ```
-Then we have our job postings to which the job seekers will subscribe
+
+再定义工作职位发布网站，求职者将会订阅
+
 ```php
 class JobPostings implements Observable {
     protected $observers = [];
@@ -1702,8 +1706,9 @@ class JobPostings implements Observable {
     }
 }
 ```
-Then it can be used as
-```phpwei
+
+然后这样使用
+```php
 // Create subscribers
 $johnDoe = new JobSeeker('John Doe');
 $janeDoe = new JobSeeker('Jane Doe');
@@ -2131,4 +2136,5 @@ MIT © [Kamran Ahmed](http://kamranahmed.info)
 - [x] 行为型设计模式 - 迭代器 (2017-02-27)
 - [x] 行为型设计模式 - 中介者 (2017-02-27)
 - [x] 行为型设计模式 - 备忘录 (2017-02-27)
+- [x] 行为型设计模式 - 观察者 (2017-02-27)
 - [x] 行为型设计模式 - 模板方法 (2017-02-27，由 [DashShen](https://github.com/DashShen) 翻译，[haiiiiiyun](https://github.com/haiiiiiyun/) 校审)
