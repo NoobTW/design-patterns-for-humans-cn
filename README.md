@@ -1177,11 +1177,11 @@ $door->close(); // Closing lab door
 行为型设计模式
 ==========================
 
-In plain words
-> It is concerned with assignment of responsibilities between the objects. What makes them different from structural patterns is they don't just specify the structure but also outline the patterns for message passing/communication between them. Or in other words, they assist in answering "How to run a behavior in software component?"
+简单来说
+> 它关注于对象间的职责分配。它们与结构型模式的区别不于：它们不只指定结构，还勾画出相互间的消息传送/通信模式。或者也可以说，它们有助于回答 "如何在软件组件中实现行为？"
 
-Wikipedia says
-> In software engineering, behavioral design patterns are design patterns that identify common communication patterns between objects and realize these patterns. By doing so, these patterns increase flexibility in carrying out this communication.
+Wikipedia 上描述为
+> 在软件工程中，行为型设计模式标识了对象间的常见通信模式以及其实现模式。通过这样做，这些模式增加了实施此种通信的灵活性。
 
 * [责任链(Chain of Responsibility)](#-责任链chain-of-responsibility)
 * [命令(Command)](#-命令command)
