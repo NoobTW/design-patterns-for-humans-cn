@@ -21,7 +21,7 @@ This is the Simplified Chinese translation of [design-patterns-for-humans](https
 
 本项目的进度和贡献者将在文末列出。
 
-当前翻译的原文版本是 [b75365b](https://github.com/kamranahmedse/design-patterns-for-humans/commit/b75365b4f69222b160c57bce5c11a32c7422fefa)
+当前翻译的原文版本是 [b9a53a8](https://github.com/kamranahmedse/design-patterns-for-humans/commit/b9a53a87a4026cb0b8e76feba72a91ecfcdf4f45)
 
 
 🚀  简介
@@ -1480,16 +1480,16 @@ class StationList implements Countable, Iterator {
 ```php
 $stationList = new StationList();
 
-$stationList->addStation(new Station(89));
-$stationList->addStation(new Station(101));
-$stationList->addStation(new Station(102));
-$stationList->addStation(new Station(103.2));
+$stationList->addStation(new RadioStation(89));
+$stationList->addStation(new RadioStation(101));
+$stationList->addStation(new RadioStation(102));
+$stationList->addStation(new RadioStation(103.2));
 
 foreach($stationList as $station) {
     echo $station->getFrequency() . PHP_EOL;
 }
 
-$stationList->removeStation(new Station(89)); // Will remove station 89
+$stationList->removeStation(new RadioStation(89)); // Will remove station 89
 ```
 
 👽 中介者(Mediator)
