@@ -1197,18 +1197,18 @@ Wikipedia 上描述为
 🔗 责任链(Chain of Responsibility)
 -----------------------
 
-Real world example
-> For example, you have three payment methods (`A`, `B` and `C`) setup in your account; each having a different amount in it. `A` has 100 USD, `B` has 300 USD and `C` having 1000 USD and the preference for payments is chosen as `A` then `B` then `C`. You try to purchase something that is worth 210 USD. Using Chain of Responsibility, first of all account `A` will be checked if it can make the purchase, if yes purchase will be made and the chain will be broken. If not, request will move forward to account `B` checking for amount if yes chain will be broken otherwise the request will keep forwarding till it finds the suitable handler. Here `A`, `B` and `C` are links of the chain and the whole phenomenon is Chain of Responsibility.
+现实案例
+> 例如，你在你的账户中设置了三种支付方式 (`A`, `B` 和 `C`); 每个内都存有不同的金额。`A` 内有 100 元，`B` 内有 300 元以及 `C` 内有 1000 元，并且你的支付偏好选择设置为先 `A` 然后 `B` 最后 `C`。你想要习价格为 210 元的商品。如何使用责任链，那么首先会检查帐户 `A`，看它是否能足够支付，如何可以那么完成支付然后链条到此结束。如果不能，那么请求将转向检查帐户 `B` 中的金额，如果足够那么链条到此结构否则请求将继续传递直到找到合适的处理帐户。这里 `A`, `B` 和 `C` 都是链条中的链接点，而整个现象就是责任链。
 
-In plain words
-> It helps building a chain of objects. Request enters from one end and keeps going from object to object till it finds the suitable handler.
+简单来说
+> 它用于创建一个对象链。请求从一端进入，并在一个对象传递到另一个，直至找到合适的处理对象。
 
-Wikipedia says
-> In object-oriented design, the chain-of-responsibility pattern is a design pattern consisting of a source of command objects and a series of processing objects. Each processing object contains logic that defines the types of command objects that it can handle; the rest are passed to the next processing object in the chain.
+Wikipedia 上描述为
+> 在面向对象设计中，责任链设计模式由命令对象源来一系列的处理对象组成。每个处理对象中都包含有逻辑，用来定义它能处置的命令对象类型; 其它不同处置的都将传递给链条中的下一个处理对象。
 
-**Programmatic Example**
+**编程示例**
 
-Translating our account example above. First of all we have a base account having the logic for chaining the accounts together and some accounts
+实现上面的帐户的例子。首先定义一个基本的帐户类，其中包含有将各帐户关联起来的逻辑功能，然后再实现几种帐户。
 
 ```php
 abstract class Account {
@@ -1260,15 +1260,15 @@ class Bitcoin extends Account {
 }
 ```
 
-Now let's prepare the chain using the links defined above (i.e. Bank, Paypal, Bitcoin)
+现在用上面定义的帐户（如 Bank, Paypal, Bitcoin) 准备一个链条
 
 ```php
-// Let's prepare a chain like below
+// 创建如下的一个链接
 //      $bank->$paypal->$bitcoin
 //
-// First priority bank
-//      If bank can't pay then paypal
-//      If paypal can't pay then bit coin
+// 优先使用银行帐户
+//      如果银行帐户无法支付再用 paypal
+//      如果 paypal 不能支持再用比特币
 
 $bank = new Bank(100);          // Bank with balance 100
 $paypal = new Paypal(200);      // Paypal with balance 200
@@ -1280,7 +1280,7 @@ $paypal->setNext($bitcoin);
 // Let's try to pay using the first priority i.e. bank
 $bank->pay(259);
 
-// Output will be
+// 输出会是
 // ==============
 // Cannot pay using bank. Proceeding ..
 // Cannot pay using paypal. Proceeding ..: 
