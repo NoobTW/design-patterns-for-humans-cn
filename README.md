@@ -643,7 +643,7 @@ $hunter->hunt($wildDogAdapter);
 Wikipedia 上描述为
 > 桥接模式是软件设计模式之一，它意在 ”将抽象与真实现分离，从而使它们可以各自独立的变化“。
 
-**编程实例**
+**编程示例**
 
 实现上面的网站的例子，这里定义了 `WebPage` 的层级结构
 
@@ -1703,7 +1703,7 @@ class JobPostings implements Observable {
 }
 ```
 Then it can be used as
-```php
+```phpwei
 // Create subscribers
 $johnDoe = new JobSeeker('John Doe');
 $janeDoe = new JobSeeker('Jane Doe');
@@ -1806,7 +1806,7 @@ $lion = new Lion();
 $dolphin = new Dolphin();
 
 $speak = new Speak();
-
+wei
 $monkey->accept($speak);    // Ooh oo aa aa!    
 $lion->accept($speak);      // Roaaar!
 $dolphin->accept($speak);   // Tuut tutt tuutt!
@@ -1993,25 +1993,28 @@ $editor->type('Fifth line');
 📒 模板方法(Template Method)
 ---------------
 
-Real world example
-> Suppose we are getting some house built. The steps for building might look like 
-> - Prepare the base of house
-> - Build the walls
-> - Add roof
-> - Add other floors
-> The order of these steps could never be changed i.e. you can't build the roof before building the walls etc but each of the steps could be modified for example walls can be made of wood or polyester or stone.
+现实案例
+> 假设我们要造房子，造房子的步骤看起来像是这样:
+> - 打地基
+> - 砌墙
+> - 盖屋顶
+> - 铺地板
+> 
+> 这些步骤的执行顺序永远都不会变，即你不可能做类似先盖屋顶然后再砌墙等等类似的事情。但是，
+> 每一步的具体操作是可以被修改的，比如说,你可以砌木头墙，聚酯纤维墙或者石头墙。
   
-In plain words
-> Template method defines the skeleton of how a certain algorithm could be performed, but defers the implementation of those steps to the children classes.
+简单来说
+> 模板方法定义了一个算法是如何被执行的，但是执行步骤的具体实现则延迟到其子类去完成。
  
-Wikipedia says
-> In software engineering, the template method pattern is a behavioral design pattern that defines the program skeleton of an algorithm in an operation, deferring some steps to subclasses. It lets one redefine certain steps of an algorithm without changing the algorithm's structure.
+Wikipedia 上描述为
+> 在软件工程中，模板方法是行为型设计模式的一种,它定义了一个算法的执行步骤,并允许子类别为一个或多个步骤提供其实践方式。让子类别在不改变算法架构的情况下，重新定义算法中的某些步骤。
 
-**Programmatic Example**
+**编程示例**
 
-Imagine we have a build tool that helps us test, lint, build, generate build reports (i.e. code coverage reports, linting report etc) and deploy our app on the test server.
+假设我们有一个可以帮助我们进行测试，代码检查，编译，生成编译结果（代码覆盖率报告，代码检查报告等）以及部署应用至测试服务器的构建工具。
 
-First of all we have our base class that specifies the skeleton for the build algorithm
+首先，我们先定义一个基类用来指定构建算法的执行步骤。
+
 ```php
 abstract class Builder {
     
@@ -2030,7 +2033,7 @@ abstract class Builder {
 }
 ```
 
-Then we can have our implementations
+然后我们来实现这些步骤。
 
 ```php
 class AndroidBuilder extends Builder {
@@ -2069,7 +2072,8 @@ class IosBuilder extends Builder {
     }
 }
 ```
-And then it can be used as
+
+接着，就可以这样使用构建工具。
 
 ```php
 $androidBuilder = new AndroidBuilder();
