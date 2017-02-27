@@ -1028,18 +1028,18 @@ $computer->turnOff(); // Bup bup buzzz! Haah! Zzzzz
 🍃 享元(Flyweight)
 ---------
 
-Real world example
-> Did you ever have fresh tea from some stall? They often make more than one cup that you demanded and save the rest for any other customer so to save the resources e.g. gas etc. Flyweight pattern is all about that i.e. sharing.
+现实案例
+> 你有过在摊位上品尝过新茶吗？他们通常沏出比你所要求的还要多的杯数，然后把多余的荼留给其他客人，从而起到节约资源（如燃气）的目的。享元模式的全部即共享。
 
-In plain words
-> It is used to minimize memory usage or computational expenses by sharing as much as possible with similar objects.
+简单来说
+> 它能使相似对象间通过尽可能多地共享，用以减少内存使用和计算花销。
 
-Wikipedia says
-> In computer programming, flyweight is a software design pattern. A flyweight is an object that minimizes memory use by sharing as much data as possible with other similar objects; it is a way to use objects in large numbers when a simple repeated representation would use an unacceptable amount of memory.
+Wikipedia 上描述为
+> 在计算机编程中，享元是一种软件设计模式。一个享元就是一个对象，它通过与其它相似对象共享尽可能多的数据，以达到对内存的最少化使用;它适用于对象数量庞大的情况，此时简单地重复表示将需要无法承受的内存量。
 
-**Programmatic example**
+**编程示例**
 
-Translating our tea example from above. First of all we have tea types and tea maker
+实现以上的茶的例子。首先定义各种茶和茶艺师
 
 ```php
 // Anything that will be cached is flyweight. 
@@ -1061,7 +1061,7 @@ class TeaMaker {
 }
 ```
 
-Then we have the `TeaShop` which takes orders and serves them
+然后定义 `TeaShop`，提供饮茶服务
 
 ```php
 class TeaShop {
@@ -1084,7 +1084,8 @@ class TeaShop {
     }
 }
 ```
-And it can be used as below
+
+可以如下使用
 
 ```php
 $teaMaker = new TeaMaker();
@@ -2101,3 +2102,4 @@ MIT © [Kamran Ahmed](http://kamranahmed.info)
 - [x] 结构型设计模式 - 组合 (2017-02-26)
 - [x] 结构型设计模式 - 装饰器 (2017-02-26)
 - [x] 结构型设计模式 - 外观 (2017-02-26)
+- [x] 结构型设计模式 - 享元 (2017-02-27)
