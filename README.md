@@ -1917,21 +1917,23 @@ $sorter->sort($dataset); // Output : Sorting using quick sort
 
 💢 状态(State)
 -----
-Real world example
-> Imagine you are using some drawing application, you choose the paint brush to draw. Now the brush changes its behavior based on the selected color i.e. if you have chosen red color it will draw in red, if blue then it will be in blue etc.  
 
-In plain words
-> It lets you change the behavior of a class when the state changes.
+现实案例
+> 假设你正在使用绘画程序，你选择画笔绘画。现在画笔会根据所选的颜色改变其行为，比如当你选择红色后它将画出红色，选择蓝色后将画出蓝色等。
 
-Wikipedia says
-> The state pattern is a behavioral software design pattern that implements a state machine in an object-oriented way. With the state pattern, a state machine is implemented by implementing each individual state as a derived class of the state pattern interface, and implementing state transitions by invoking methods defined by the pattern's superclass.
-> The state pattern can be interpreted as a strategy pattern which is able to switch the current strategy through invocations of methods defined in the pattern's interface.
+简单来说
+> 它能使你在状态改变后修改类的行为。
 
-**Programmatic example**
+Wikipedia 上描述为
+> 状态模式是一种行为型软件设计模式，它用面向对象的方式实现了一个状态机。在状态模式中，通过将每个单独状态实现为状态模式接口的一个继承类，而状态间的转变通过调用在模式的父类中定义的函数来实现，从而实现一个状态机。
+> 状态模式
+> 状态模式可以解释为是一种策略模式，它能通过调用在模式接口中定义的方法来切换当前策略。
 
-Let's take an example of text editor, it lets you change the state of text that is typed i.e. if you have selected bold, it starts writing in bold, if italic then in italics etc.
+**编程示例**
 
-First of all we have our state interface and some state implementations
+以文本编辑器为例，它能让我们修改输入文本的状态，比如选择粗体后，它就会用粗体书写，选择斜体就会用斜体等。
+
+首先定义状态接口，并实现一些状态类
 
 ```php
 interface WritingState {
@@ -1956,7 +1958,9 @@ class Default implements WritingState {
     }
 }
 ```
-Then we have our editor
+
+再定义编辑器
+
 ```php
 class TextEditor {
     protected $state;
@@ -1974,7 +1978,9 @@ class TextEditor {
     }
 }
 ```
-And then it can be used as
+
+然后这样使用
+
 ```php
 $editor = new TextEditor(new Default());
 
@@ -2141,4 +2147,5 @@ MIT © [Kamran Ahmed](http://kamranahmed.info)
 - [x] 行为型设计模式 - 备忘录 (2017-02-27)
 - [x] 行为型设计模式 - 观察者 (2017-02-27)
 - [x] 行为型设计模式 - 策略 (2017-02-27)
+- [x] 行为型设计模式 - 状态 (2017-02-27)
 - [x] 行为型设计模式 - 模板方法 (2017-02-27，由 [DashShen](https://github.com/DashShen) 翻译，[haiiiiiyun](https://github.com/haiiiiiyun/) 校审)
