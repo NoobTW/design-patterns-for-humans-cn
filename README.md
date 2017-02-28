@@ -1735,27 +1735,29 @@ $jobPostings->addJob(new JobPost('Software Engineer'));
 简单来说
 > 访问者模式允许你无需进行修改就能将进一步的操作添加到对象中。
  
-Wikipedia says
-> In object-oriented programming and software engineering, the visitor design pattern is a way of separating an algorithm from an object structure on which it operates. A practical result of this separation is the ability to add new operations to existing object structures without modifying those structures. It is one way to follow the open/closed principle.
+Wikipedia 上描述为
+> 在面向对象编程和软件工程中，访问者设计模式是将算法与其所操作的对象结构进行分离的一种方法。这种分离的实际结果是：具有在不修改现有对象结构的情况下，将新操作加入对象结构中的能力。
 
-**Programmatic example**
+**编程示例**
 
-Let's take an example of a zoo simulation where we have several different kinds of animals and we have to make them Sound. Let's translate this using visitor pattern 
+以一个模拟动物园为例，里面有多种动物，并且我们需要它们发出声音。我们将用访问者模式实现这个例子
 
 ```php
-// Visitee
+// 被访问者
 interface Animal {
     public function accept(AnimalOperation $operation);
 }
 
-// Visitor
+// 访问者
 interface AnimalOperation {
     public function visitMonkey(Monkey $monkey);
     public function visitLion(Lion $lion);
     public function visitDolphin(Dolphin $dolphin);
 }
 ```
-Then we have our implementations for the animals
+
+再实现一些动物类
+
 ```php
 class Monkey implements Animal {
     
@@ -1788,7 +1790,9 @@ class Dolphin implements Animal {
     }
 }
 ```
-Let's implement our visitor
+
+实现访问者
+
 ```php
 class Speak implements AnimalOperation {
     public function visitMonkey(Monkey $monkey) {
@@ -1805,19 +1809,21 @@ class Speak implements AnimalOperation {
 }
 ```
 
-And then it can be used as
+然后可以这样使用
+
 ```php
 $monkey = new Monkey();
 $lion = new Lion();
 $dolphin = new Dolphin();
 
 $speak = new Speak();
-wei
+
 $monkey->accept($speak);    // Ooh oo aa aa!    
 $lion->accept($speak);      // Roaaar!
 $dolphin->accept($speak);   // Tuut tutt tuutt!
 ```
-We could have done this simply by having a inheritance hierarchy for the animals but then we would have to modify the animals whenever we would have to add new actions to animals. But now we will not have to change them. For example, let's say we are asked to add the jump behavior to the animals, we can simply add that by creating a new visitor i.e.
+
+我们本可以只使用动物类的继承结构实现上面的功能，但是如果那么的话，当我们需要添加新动作到动物类时，就必须修改动物类。而现在我们无法修改它们。例如，当要求新跳的行为加入动物类时，我们只需简单地创建一个新访问者即可。
 
 ```php
 class Jump implements AnimalOperation {
@@ -1834,7 +1840,9 @@ class Jump implements AnimalOperation {
     }
 }
 ```
-And for the usage
+
+再这样使用
+
 ```php
 $jump = new Jump();
 
@@ -2147,6 +2155,7 @@ MIT © [Kamran Ahmed](http://kamranahmed.info)
 - [x] 行为型设计模式 - 中介者 (2017-02-27)
 - [x] 行为型设计模式 - 备忘录 (2017-02-27)
 - [x] 行为型设计模式 - 观察者 (2017-02-27)
+- [x] 行为型设计模式 - 访问者 (2017-02-28)
 - [x] 行为型设计模式 - 策略 (2017-02-27)
 - [x] 行为型设计模式 - 状态 (2017-02-27)
 - [x] 行为型设计模式 - 模板方法 (2017-02-27，由 [DashShen](https://github.com/DashShen) 翻译，[haiiiiiyun](https://github.com/haiiiiiyun/) 校审)
