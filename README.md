@@ -21,7 +21,7 @@ This is the Simplified Chinese translation of [design-patterns-for-humans](https
 
 本项目的进度和贡献者将在文末列出。
 
-当前翻译的原文版本是 [b9a53a8](https://github.com/kamranahmedse/design-patterns-for-humans/commit/b9a53a87a4026cb0b8e76feba72a91ecfcdf4f45)
+当前翻译的原文版本是 [5cf37f7](https://github.com/kamranahmedse/design-patterns-for-humans/commit/b9a53a87a4026cb0b8e76feba72a91ecfcdf4f45)
 
 
 🚀  简介
@@ -1996,12 +1996,12 @@ $editor = new TextEditor(new Default());
 
 $editor->type('First line');
 
-$editor->setState(new UpperCaseState());
+$editor->setState(new UpperState());
 
 $editor->type('Second line');
 $editor->type('Third line');
 
-$editor->setState(new LowerCaseState());
+$editor->setState(new LowerState());
 
 $editor->type('Fourth line');
 $editor->type('Fifth line');

@@ -1902,12 +1902,12 @@ $editor = new TextEditor(new Default());
 
 $editor->type('First line');
 
-$editor->setState(new UpperCaseState());
+$editor->setState(new UpperState());
 
 $editor->type('Second line');
 $editor->type('Third line');
 
-$editor->setState(new LowerCaseState());
+$editor->setState(new LowerState());
 
 $editor->type('Fourth line');
 $editor->type('Fifth line');
